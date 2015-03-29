@@ -40,23 +40,24 @@ showPicture();
 //event   (addEventListener 사용!! 수정 ㄱㄱ)
 window.onload = function() {
     document.getElementById('toLeft').onclick = function() {
+        if (pictureCountNumber >= 0) {
+
 //        사진이 3개있는 화면에서 왼쪽으로 넘길 때
-        if (pictureCountNumber%3 == 2) {
-            pictureCountNumber = pictureCountNumber - 5;
-            showPicture();
+            if (pictureCountNumber % 3 == 2) {
+                pictureCountNumber = pictureCountNumber - 5;
+                showPicture();
 //            사진이 2개있는 화면에서 왼쪽으로 넘길 때
-        }else if(pictureCountNumber%3 ==1){
-            pictureCountNumber = pictureCountNumber - 4;
-            showPicture();
-        }
-        else{
-            pictureCountNumber = pictureCountNumber - 3;
-            showPicture();
-        }
-    }
-
+            } else if (pictureCountNumber % 3 == 1) {
+                pictureCountNumber = pictureCountNumber - 4;
+                showPicture();
+            }
 // 사진이 1개있는 화면에서 왼쪽으로 넘길 때
-
+            else if(pictureCountNumber % 3 ==0 &&pictureCountNumber>=6) {
+                pictureCountNumber = pictureCountNumber - 6;
+                showPicture();
+            }
+        }
+}
 
 
 //   addEventListner 써야하는데..
@@ -65,39 +66,31 @@ window.onload = function() {
 //        pageMoveEvent.addEventListener()
 //    }
 
+//   오른쪽 버튼 클릭할 때
     document.getElementById('toRight').onclick = function() {
-        this.style.color = 'red';
-        if(pictureCountNumber <6){
             showPicture();
-        }else if(pictureCountNumber =6){
-            for(var i = 0; i<2; i++){
-                var str = '';
-                str += '<img src="'+todayPhoto[pictureCountNumber].img+'"> ';
-                pictureCountNumber++;
-            }
-            wrap.innerHTML = str;
-
-        }
     }
 };
 
 //화면에 사진을 출력하는 메소드
 function showPicture() {
     // 사진 3장을 화면에 보여줄 때
-    if(pictureCountNumber+2 !=null){
+    if(todayPhoto[pictureCountNumber+3] !=null){
         var str = '';
         for(var i = 0; i<3; i++){
             str += '<img src="'+todayPhoto[pictureCountNumber].img+'"> ';
             pictureCountNumber++;
+            wrap.innerHTML = str;
+
         }
         // 사진 2장을 화면에 보여줄 때
-    }else if(pictureCountNumber+1 !=null){
+    }else if(todayPhoto[pictureCountNumber+1] !=null){
         var str = '';
         for(var i = 0; i<2; i++){
             str += '<img src="'+todayPhoto[pictureCountNumber].img+'"> ';
             pictureCountNumber++;
+            wrap.innerHTML = str;
         }
     }
-    wrap.innerHTML = str;
 }
 
