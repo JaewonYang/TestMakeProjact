@@ -39,24 +39,26 @@ showPicture();
 
 //event   (addEventListener 사용!! 수정 ㄱㄱ)
 window.onload = function() {
-    document.getElementById('toLeft').onclick = function() {
-        if (pictureCountNumber >= 0) {
+    document.getElementById('toLeft').addEventListener("click", function(){
+            if (pictureCountNumber >= 0) {
 
 //        사진이 3개있는 화면에서 왼쪽으로 넘길 때
-            if (pictureCountNumber % 3 == 2) {
-                pictureCountNumber = pictureCountNumber - 5;
-                showPicture();
+                if (pictureCountNumber % 3 == 2) {
+                    pictureCountNumber = pictureCountNumber - 5;
+                    showPicture();
 //            사진이 2개있는 화면에서 왼쪽으로 넘길 때
-            } else if (pictureCountNumber % 3 == 1) {
-                pictureCountNumber = pictureCountNumber - 4;
-                showPicture();
-            }
+                } else if (pictureCountNumber % 3 == 1) {
+                    pictureCountNumber = pictureCountNumber - 4;
+                    showPicture();
+                }
 // 사진이 1개있는 화면에서 왼쪽으로 넘길 때
-            else if(pictureCountNumber % 3 ==0 &&pictureCountNumber>=6) {
-                pictureCountNumber = pictureCountNumber - 6;
-                showPicture();
+                else if (pictureCountNumber % 3 == 0 && pictureCountNumber >= 6) {
+                    pictureCountNumber = pictureCountNumber - 6;
+                    showPicture();
+                }
             }
         }
+    );
 }
 
 
@@ -67,10 +69,9 @@ window.onload = function() {
 //    }
 
 //   오른쪽 버튼 클릭할 때
-    document.getElementById('toRight').onclick = function() {
-            showPicture();
-    }
-};
+document.getElementById('toRight').addEventListener("click", function() {
+    showPicture();
+});
 
 //화면에 사진을 출력하는 메소드
 function showPicture() {
