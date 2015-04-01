@@ -1,7 +1,6 @@
-/**
- * Created by Jaewon on 2015-01-05.
+/*
+ * Created by Jaewon on 2015-03-30.
  */
-
 
 function main() {
     this.red = null;
@@ -9,11 +8,12 @@ function main() {
     this.board = document.getElementById("board");
     this.spanArray = document.getElementsByTagName("span");
 
-    document.getElementById('span').addEventListener("click", function () {
-        ClickEvent();
-    });
-
+    chessBlock();
 }
+
+document.getElementById("board").addEventListener("click", function(event) {
+    ClickEvent();
+});
 
 function chessBlock() {
     for (var i = 0; i < 4; i++) {
@@ -32,8 +32,7 @@ function ClickEvent() {
         span.addEventListener('click', this.clickRed.bind(this));
     }
 }
-
-function clickRed() {
+function clickRed(e) {
     if (this.red != null) {
         this.red.className = this.red.className.replace(' red', "");
     }
@@ -42,3 +41,4 @@ function clickRed() {
 }
 
 
+main();

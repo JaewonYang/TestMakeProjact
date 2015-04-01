@@ -1,6 +1,7 @@
 /**
  * Created by Jaewon on 2015-03-26.
  */
+
 var pictureCountNumber = 0;
 var todayPhoto = [
     {"url":"http://media.daum.net/photo/2841","img":"http://icon.daumcdn.net/w/c/12/05/82877085750988319.jpeg",
@@ -26,18 +27,11 @@ var todayPhoto = [
     ,
     {"url":"http://sports.media.daum.net/general/gallery/STARKIMYUNA/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81727815537682839.jpeg",
         "title":"&#39;교생&#39; 김연아, 스승의날에도 인기폭발","id":"20120516092003892"}];
+var pageName= document.
+
 showPicture();
 
-//var wrap = document.getElementById('wrap');
-//
-//var str = '';
-//
-//for(var i=0; i<todayPhoto.length; i++){
-//    str += '<img src="'+todayPhoto[i].img+'"> ';
-//}
-//wrap.innerHTML = str;
 
-//event   (addEventListener 사용!! 수정 ㄱㄱ)
 window.onload = function() {
     document.getElementById('toLeft').addEventListener("click", function(){
             if (pictureCountNumber >= 0) {
@@ -46,12 +40,12 @@ window.onload = function() {
                 if (pictureCountNumber % 3 == 2) {
                     pictureCountNumber = pictureCountNumber - 5;
                     showPicture();
-//            사진이 2개있는 화면에서 왼쪽으로 넘길 때
+//        사진이 2개있는 화면에서 왼쪽으로 넘길 때
                 } else if (pictureCountNumber % 3 == 1) {
                     pictureCountNumber = pictureCountNumber - 4;
                     showPicture();
                 }
-// 사진이 1개있는 화면에서 왼쪽으로 넘길 때
+//        사진이 1개있는 화면에서 왼쪽으로 넘길 때
                 else if (pictureCountNumber % 3 == 0 && pictureCountNumber >= 6) {
                     pictureCountNumber = pictureCountNumber - 6;
                     showPicture();
@@ -60,14 +54,6 @@ window.onload = function() {
         }
     );
 }
-
-
-//   addEventListner 써야하는데..
-//    window.onload = function(){
-//        var pageMoveEvent= document.getElementById('toLeft');
-//        pageMoveEvent.addEventListener()
-//    }
-
 //   오른쪽 버튼 클릭할 때
 document.getElementById('toRight').addEventListener("click", function() {
     showPicture();
@@ -82,7 +68,6 @@ function showPicture() {
             str += '<img src="'+todayPhoto[pictureCountNumber].img+'"> ';
             pictureCountNumber++;
             wrap.innerHTML = str;
-
         }
         // 사진 2장을 화면에 보여줄 때
     }else if(todayPhoto[pictureCountNumber+1] !=null){
